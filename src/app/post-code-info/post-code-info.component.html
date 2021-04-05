@@ -1,0 +1,22 @@
+<form>
+  <input
+    #postCode
+    class="post-code"
+    placeholder="Enter a post code..."
+    type="text"
+    (keyup)="validatePostCodeAgainstRegEx(postCode.value)"
+  />
+
+  <input type="button" class="button" value="Click to get more info" (click)="getPostCodeInfo(postCode.value)">
+  <span class="is-valid">
+    Does this postcode exist: {{ doesPostCodeExist | async}}
+  </span>
+
+  <span class="post-code-info">
+    {{ postCodeInfo | json}}
+  </span>
+
+  <span class="error">
+    {{ errorMessage }}
+  </span>
+</form>
